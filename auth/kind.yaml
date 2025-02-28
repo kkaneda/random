@@ -1,0 +1,27 @@
+# https://github.com/kubernetes-sigs/kind/issues/1507
+
+kind: Cluster
+apiVersion: kind.x-k8s.io/v1alpha4
+kubeadmConfigPatches:
+  - |
+    kind: ClusterConfiguration
+    metadata:
+      name: config
+    apiServer:
+      extraArgs:
+        "authentication-config": "/etc/kubernetes/auth-files/config.yaml"
+      extraVolumes:
+      - name: api-server-basic-auth-files
+        hostPath: "/etc/kubernetes/auth-files"
+         mountPath: "/etc/kubernetes/auth-files"
+        readOnly: true
+nodes:
+- role: control-plane
+  extraMounts:
+  - containerPath: /etc/kubernetes/auth-files
+    hostPath: /Users/kenji/dev/misc/mtt/auth/files
+    readOnly: true
+  extraPortMappings:
+  - containerPort: 32000
+    hostPort: 32000
+    protocol: TCP

@@ -1,0 +1,38 @@
+apiVersion: apiserver.config.k8s.io/v1beta1
+kind: AuthenticationConfiguration
+jwt:
+- issuer:
+    url: https://localhost:32000
+    audiences:
+    - example-app
+    # cat ./dex/examples/k8s/ssl/ca.pem | base64 -w0
+    certificateAuthority: |
+      -----BEGIN CERTIFICATE-----
+      MIIDBTCCAe2gAwIBAgIUEgka6fBL1AyWsJsvm7X9UdvfT3YwDQYJKoZIhvcNAQEL
+      BQAwEjEQMA4GA1UEAwwHa3ViZS1jYTAeFw0yNTAyMjcwODAxNTZaFw0yNTAzMDkw
+      ODAxNTZaMBIxEDAOBgNVBAMMB2t1YmUtY2EwggEiMA0GCSqGSIb3DQEBAQUAA4IB
+      DwAwggEKAoIBAQDs9FWnhxeiFT8+uPKd8R31uET5urAHKqRPNosonb5MTdtjfDzT
+      4+SY9KzGbCSCE+5UOWM1uIWhnS16Ij2ZPzQ/ZtF59ZdpP+5XoEi5Os8gfXB1rmLj
+      i/pM8EC1ltNFtWYr5Zy/Ycz73VZvUA6MhFm/f5EWS9uPQzHpnH3zljo/vr+aXYI8
+      xV7ACN+f0SrS7zggYAG6Lvxv7RBsQxQlgikJgnJ+4HsEniwixt9h6TDNCBHCptss
+      O0jBk2NqTbtHy7XAd9qUBlq1bgKtJYqkXF717zlVB6XtArhaj3K56A9Kbj737xwf
+      UzYl3RhiO/VyWC6r9IHce1YDrIF+7SWTPzLXAgMBAAGjUzBRMB0GA1UdDgQWBBQW
+      vx/55ca4gp+u0KLnTz75YmrP5TAfBgNVHSMEGDAWgBQWvx/55ca4gp+u0KLnTz75
+      YmrP5TAPBgNVHRMBAf8EBTADAQH/MA0GCSqGSIb3DQEBCwUAA4IBAQDR6yMyreAI
+      TciWVxxlUFKUfNyanua+f9ot96kwjBBDXLYNqm2GHbIueSldz4J0KkpuL1N0xjbS
+      g3SqH0rBzDJ0TBxSeKj3YAEueiZnheWISUAx7PIhWUIa2zu6/RG7XCOugKQ9ERrx
+      nwDvyVk+xJg1k4iHEAlGhs8eZhoNHloz8cXzBDBNDwz2c3N1fbSUYn3n+QjB0q/n
+      /TZB9njqkSukxMHczilvwHteelZLU+Vd2PO79oSBE8+vhK4ufLDIY/oM3ublPuqE
+      gpOg0FYTyLZf4ZPQyC4TyrP19J5bJUFHP/qtQwYvupX2xnP9aXEFyKB5o59nhXBL
+      gfElFI0H16WR
+      -----END CERTIFICATE-----
+  claimMappings:
+    username:
+      prefix: ""
+      claim: email
+    groups:
+      prefix: ""
+      claim: groups
+  userValidationRules:
+  - expression: "!user.username.startsWith('system:')"
+    message: "username cannot use reserved system: prefix"
