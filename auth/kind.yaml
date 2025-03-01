@@ -13,13 +13,13 @@ kubeadmConfigPatches:
       extraVolumes:
       - name: api-server-basic-auth-files
         hostPath: "/etc/kubernetes/auth-files"
-         mountPath: "/etc/kubernetes/auth-files"
+        mountPath: "/etc/kubernetes/auth-files"
         readOnly: true
 nodes:
 - role: control-plane
   extraMounts:
   - containerPath: /etc/kubernetes/auth-files
-    hostPath: /Users/kenji/dev/misc/mtt/auth/files
+    hostPath: /Users/kenji/dev/go/src/github.com/kkaneda/random/auth/files
     readOnly: true
   extraPortMappings:
   - containerPort: 32000

@@ -4,27 +4,26 @@ jwt:
 - issuer:
     url: https://localhost:32000
     audiences:
-    - example-app
-    # cat ./dex/examples/k8s/ssl/ca.pem | base64 -w0
+    - kubernetes
     certificateAuthority: |
       -----BEGIN CERTIFICATE-----
-      MIIDBTCCAe2gAwIBAgIUEgka6fBL1AyWsJsvm7X9UdvfT3YwDQYJKoZIhvcNAQEL
-      BQAwEjEQMA4GA1UEAwwHa3ViZS1jYTAeFw0yNTAyMjcwODAxNTZaFw0yNTAzMDkw
-      ODAxNTZaMBIxEDAOBgNVBAMMB2t1YmUtY2EwggEiMA0GCSqGSIb3DQEBAQUAA4IB
-      DwAwggEKAoIBAQDs9FWnhxeiFT8+uPKd8R31uET5urAHKqRPNosonb5MTdtjfDzT
-      4+SY9KzGbCSCE+5UOWM1uIWhnS16Ij2ZPzQ/ZtF59ZdpP+5XoEi5Os8gfXB1rmLj
-      i/pM8EC1ltNFtWYr5Zy/Ycz73VZvUA6MhFm/f5EWS9uPQzHpnH3zljo/vr+aXYI8
-      xV7ACN+f0SrS7zggYAG6Lvxv7RBsQxQlgikJgnJ+4HsEniwixt9h6TDNCBHCptss
-      O0jBk2NqTbtHy7XAd9qUBlq1bgKtJYqkXF717zlVB6XtArhaj3K56A9Kbj737xwf
-      UzYl3RhiO/VyWC6r9IHce1YDrIF+7SWTPzLXAgMBAAGjUzBRMB0GA1UdDgQWBBQW
-      vx/55ca4gp+u0KLnTz75YmrP5TAfBgNVHSMEGDAWgBQWvx/55ca4gp+u0KLnTz75
-      YmrP5TAPBgNVHRMBAf8EBTADAQH/MA0GCSqGSIb3DQEBCwUAA4IBAQDR6yMyreAI
-      TciWVxxlUFKUfNyanua+f9ot96kwjBBDXLYNqm2GHbIueSldz4J0KkpuL1N0xjbS
-      g3SqH0rBzDJ0TBxSeKj3YAEueiZnheWISUAx7PIhWUIa2zu6/RG7XCOugKQ9ERrx
-      nwDvyVk+xJg1k4iHEAlGhs8eZhoNHloz8cXzBDBNDwz2c3N1fbSUYn3n+QjB0q/n
-      /TZB9njqkSukxMHczilvwHteelZLU+Vd2PO79oSBE8+vhK4ufLDIY/oM3ublPuqE
-      gpOg0FYTyLZf4ZPQyC4TyrP19J5bJUFHP/qtQwYvupX2xnP9aXEFyKB5o59nhXBL
-      gfElFI0H16WR
+      MIIDBTCCAe2gAwIBAgIUIX5Tpx94kKtQbByo51/Hf4hnzuUwDQYJKoZIhvcNAQEL
+      BQAwEjEQMA4GA1UEAwwHa3ViZS1jYTAeFw0yNTAzMDEwNTEyNDJaFw0zNTAyMjcw
+      NTEyNDJaMBIxEDAOBgNVBAMMB2t1YmUtY2EwggEiMA0GCSqGSIb3DQEBAQUAA4IB
+      DwAwggEKAoIBAQC1V6XOyXRqTRtzwBuKbCbsWP+mSLkXD0qsvef002Ew9FWawD2K
+      YzulM0tF0Wbqq2C8xq580/YF/bVxX5X6SnPszSysuYIhU5TW/TRCO/cVlXf+L7tq
+      Mo2CzjEGWYh429OqHX+yUWO7uer9qW90VvMh1FA52jES3yAR+WHlng8WNyfbClsb
+      otWi/7eNk/9ezRdr8h5okH80xEh0WEsLW/4Bb2+vtdmmkBj3sumiZtflqkkOZuJY
+      ZR8CoswIzMeT27MiI4U8XAbEHo3fvtcBPs0vMlN4HiZed3gVttAh1dxrdNcwY+NG
+      ly8mamP4MA9rgeOr/tz2uZ4brJBng1V3HQNDAgMBAAGjUzBRMB0GA1UdDgQWBBS0
+      ccWkuhrFSGRq2EnaCWL4/AhBDDAfBgNVHSMEGDAWgBS0ccWkuhrFSGRq2EnaCWL4
+      /AhBDDAPBgNVHRMBAf8EBTADAQH/MA0GCSqGSIb3DQEBCwUAA4IBAQCtU+byOx2y
+      PHZMYhKvJ8J6T/8FTinpoag4/btAxZheWykwlFVoRrcngEcNcoMoBr3Wpbnnop2k
+      gjHR5ODL/ZaBFxzk+tJ6OA/70X8p7FLvVTI9pdIXMAmOLDgYzDJMeVyc8uXasaOF
+      DqKGwIyh/kEziDUFdngDbzz8l6g5QwHjxBmQ0vJkqt2S4Ts1o9U/DPFlx2JuqAme
+      E6VJjgH2Rg+2fsvypOElMLqNBG0n5G1eT+m/eCfGZ7f5K0jrM0gXkX4tl0QR7W4e
+      UmdmCejsMxHBISZJVcMILmfJ/CO4qAmzmuQHtITvk28IjqpEQ3O+rm2hEMNbs9yV
+      owvADt5bXYeX
       -----END CERTIFICATE-----
   claimMappings:
     username:
